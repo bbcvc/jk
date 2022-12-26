@@ -21,17 +21,24 @@ const count = ref(list)
   color: #888;
 }
 .content {
-  display: flex;
-  flex-wrap: wrap;
+  column-count: 3;
+    column-gap: 10px;
   max-width: 1200px;
   margin: auto;
 }
+@media screen and (max-width: 800px) {
+  .content {
+    column-count: 2;
+    column-gap: 10px;
+  }
+}
 .content-list {
-  width: 33%;
+  min-width: calc(100%/3 - 20px);
 }
 .content-list > img {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 8px;
 }
 </style>
