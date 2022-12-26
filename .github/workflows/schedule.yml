@@ -1,8 +1,8 @@
 name: schedule
 
 on:
-  push:
-    branches: [ master ]
+  schedule:
+    - cron: "0 * * * *"
 
 jobs:
   build:
