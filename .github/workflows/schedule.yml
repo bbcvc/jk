@@ -1,0 +1,32 @@
+name: schedule
+
+on:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      TZ: Asia/Shanghai
+
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v3
+
+      - name: Install deno
+        uses: denoland/setup-deno@v1
+
+      - name: Run deno
+        run: |
+          git config --local user.email "bot@github.com"
+          git config --local user.name "bot"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+          cd ./script
+          npx pnpm i
+          npx pnpm run test
+          git add .
+          git commit -m "update by github action"
+          git push
