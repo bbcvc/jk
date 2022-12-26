@@ -5,7 +5,7 @@ import fs from 'node:fs'
 (async () => {
     // 启动浏览器
     const browser = await puppeteer.launch({
-        headless: false, // 默认是无头模式，这里为了示范所以使用正常模式
+      headless: true, // 默认是无头模式，这里为了示范所以使用正常模式
     })
 
     // 控制浏览器打开新标签页面

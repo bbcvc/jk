@@ -7,7 +7,7 @@
     "test": "node ./index.mjs"
   },
   "engines": {
-    "node": "> 16"
+    "node": ">= 16"
   },
   "keywords": [],
   "author": "",
