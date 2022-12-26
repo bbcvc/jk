@@ -27,8 +27,9 @@ jobs:
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           cd ./script
-          npx pnpm i --no-frozen-lockfile
+          npx pnpm i
           npx pnpm run test
+          cd ../
           git add .
           git commit -m "update by github action"
           git push
