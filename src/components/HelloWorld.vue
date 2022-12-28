@@ -11,7 +11,7 @@ const count = ref(list)
   <div class="content">
     <div v-for="i of count" class="content-list">
       <!-- <p>{{ i.title }}</p> -->
-      <img :src='i.url' alt="">
+      <img :src='i.url' :alt="i.title" :title="i.title">
     </div>
   </div>
 </template>
