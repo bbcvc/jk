@@ -10,6 +10,8 @@ import fs from 'node:fs'
 
   // 控制浏览器打开新标签页面
   const page = await browser.newPage()
+  await page.setDefaultNavigationTimeout(0)
+  
   await page.setViewport({
     width: 2560,
     height: 3000,
