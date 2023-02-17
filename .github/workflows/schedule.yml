@@ -31,5 +31,5 @@ jobs:
           npx pnpm run test
           cd ../
           git add .
-          git commit --allow-empty -m "update by github action"
-          git push
+          git commit -m "update by github action" --allow-empty
+          git push -f
