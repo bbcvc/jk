@@ -24,6 +24,8 @@ jobs:
 
       - name: Update image
         run: |
+          git config --local user.email "chenglong9604@outlook.com"
+          git config --local user.name "bbcvc"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           cd ./script
