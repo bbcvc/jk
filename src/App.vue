@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import Medium from './components/Medium.vue';
 </script>
 
 <template>
-  <HelloWorld msg="Vite + Vue" />
+  <Medium msg="Vite + Vue" />
 </template>
 
 <style scoped>

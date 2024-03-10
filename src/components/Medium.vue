@@ -1,10 +1,21 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import mediumZoom from 'medium-zoom/dist/pure'
+import 'medium-zoom/dist/style.css'
+import { onMounted, ref } from 'vue'
 import list from '../../doc/res.json'
+
+const LOGO_TITLE = '官码'
 
 defineProps<{ msg: string }>()
 
-const count = ref(list)
+const count = ref(list?.filter(l => l.title !== LOGO_TITLE))
+onMounted(() => {
+  mediumZoom(document.querySelectorAll('.content-list > img'), {
+    margin: 24,
+    background: 'rgba(0,0,0,.58)',
+    respectSrcsetImageSize: true,
+  })
+})
 </script>
 
 <template>
@@ -41,4 +52,4 @@ const count = ref(list)
   object-fit: cover;
   border-radius: 8px;
 }
-</style>
+</style>onMounted, 
