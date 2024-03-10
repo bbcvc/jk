@@ -1,6 +1,6 @@
 // @ts-check
-import puppeteer from 'puppeteer'
 import fs from 'node:fs'
+import puppeteer from 'puppeteer'
 
 (async () => {
   // 启动浏览器
@@ -21,7 +21,7 @@ import fs from 'node:fs'
   await page.waitForSelector('#masonry')
 
   // 使用evaluate方法在浏览器中执行传入函数（完全的浏览器环境，所以函数内可以直接使用window、document等所有对象和方法）
-  let data = await page.evaluate(() => {
+  let res = await page.evaluate(() => {
     let elements = [...document.querySelectorAll('img')]
 
     let data = []
@@ -36,8 +36,8 @@ import fs from 'node:fs'
         url
       })
     }
-    return data.filter(img => !img.url?.endsWith('lazy.svg'))
+    return data.filter(img => !img.url?.endsWith('lazy.svg') && img.title !== '官码')
   })
-  fs.writeFileSync('../doc/res.json', JSON.stringify(data, null, 2))
+  fs.writeFileSync('../doc/res.json', JSON.stringify(res, null, 2))
   await browser.close()
 })()

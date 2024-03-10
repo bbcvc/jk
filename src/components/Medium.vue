@@ -4,7 +4,7 @@ import 'medium-zoom/dist/style.css'
 import { onMounted, ref } from 'vue'
 import list from '../../doc/res.json'
 
-const LOGO_TITLE = '官码'
+const LOGO_TITLE = '官码' as const
 
 defineProps<{ msg: string }>()
 
@@ -12,7 +12,7 @@ const count = ref(list?.filter(l => l.title !== LOGO_TITLE))
 onMounted(() => {
   mediumZoom(document.querySelectorAll('.content-list > img'), {
     margin: 24,
-    background: 'rgba(0,0,0,.58)'
+    background: 'rgba(0,0,0,.58)',
   })
 })
 </script>
@@ -21,7 +21,7 @@ onMounted(() => {
   <div class="content">
     <div v-for="i of count" class="content-list">
       <!-- <p>{{ i.title }}</p> -->
-      <img :src='i.url' :alt="i.title" :title="i.title">
+      <img loading="lazy" :src='i.url' :alt="i.title" :title="i.title">
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ onMounted(() => {
 }
 .content {
   column-count: 3;
-    column-gap: 10px;
+  column-gap: 10px;
   max-width: 1200px;
   margin: auto;
 }
@@ -50,5 +50,8 @@ onMounted(() => {
   height: auto;
   object-fit: cover;
   border-radius: 8px;
+}
+img {
+  border-radius: 4px;
 }
 </style>
