@@ -12,8 +12,7 @@ const count = ref(list?.filter(l => l.title !== LOGO_TITLE))
 onMounted(() => {
   mediumZoom(document.querySelectorAll('.content-list > img'), {
     margin: 24,
-    background: 'rgba(0,0,0,.58)',
-    respectSrcsetImageSize: true,
+    background: 'rgba(0,0,0,.58)'
   })
 })
 </script>
@@ -52,4 +51,4 @@ onMounted(() => {
   object-fit: cover;
   border-radius: 8px;
 }
-</style>onMounted, 
+</style>
