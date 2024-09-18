@@ -40,7 +40,7 @@ async function getImageUrl(page) {
     height: 3000,
   });
   // 在新标签中打开要爬取的网页
-  await page.goto(`https://jk.rs`)
+  await page.goto(`https://v2.jk.rs`)
 
   // 等待页面加载完成
   const res = []
